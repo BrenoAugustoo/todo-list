@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: calc(4rem - 45px);
+  height: 2.6rem;
+
+  strong {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--blue-500);
+
+    span {
+      background-color: var(--gray-400);
+      color: var(--gray-200);
+      padding: 0.1rem 0.5rem ;
+      border-radius: 999999px;
+    }
+
+    &:last-child {
+      color: var(--purple-500)
+    }
+  }
+}
+
+.emptyTasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-top: 1px solid var(--gray-400);
+
+  img {
+    margin-top: 4rem;
+  }
+
+  > strong {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--gray-300);
+    margin-top: 1rem;
+    line-height: 1.6;
+    align-self: justify;
+
+    > p {
+      font-weight: 400;
+    }
+  }
+}

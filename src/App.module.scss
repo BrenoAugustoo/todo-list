@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 46rem;
+  margin: 1rem auto;
+
+  display: flex;
+  flex-direction: column;
+
+  > form {
+    transform: translateY(-45px);
+  }
+}
