@@ -6,10 +6,13 @@ import { Trash } from 'phosphor-react';
 interface TasksProps {
   tasks: Task[],
   onDeleteTask: ( id: string ) => void;
+  onCompleteTask: (id: string) => void;
 }
 
-export function Tasks({ tasks, onDeleteTask }: TasksProps ) {
+export function Tasks({ tasks, onDeleteTask, onCompleteTask }: TasksProps ) {
   const hasTasks = tasks.length;
+
+  const completedTasks = tasks.filter(task => task.isCompleted).length;
   
   return (
     <>
@@ -18,7 +21,7 @@ export function Tasks({ tasks, onDeleteTask }: TasksProps ) {
           Tarefas criadas <span>{tasks.length}</span>
         </strong>
         <strong>
-          Concluídas <span> 0 de {tasks.length} </span>
+          Concluídas <span> {completedTasks} de {tasks.length} </span>
         </strong>
       </header>
 
@@ -28,7 +31,7 @@ export function Tasks({ tasks, onDeleteTask }: TasksProps ) {
             return (
               <main className={styles.taskItem} key={task.id} >
                 <div>
-                  <input id={`checkbox-${task.id}`} type="checkbox"/> 
+                  <input id={`checkbox-${task.id}`} type="checkbox" onClick={() => onCompleteTask(task.id) } /> 
                   <label htmlFor={`checkbox-${task.id}`}/>
                 </div>
                 <p className={ task.isCompleted ? styles.selected : ''} >

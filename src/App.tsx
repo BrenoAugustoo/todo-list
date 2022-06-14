@@ -38,6 +38,18 @@ function App() {
     setTasks((state) => state.filter((task) => task.id !== id));
   }
 
+  function handleCompleteTask(id: string) {
+    const tasksUpdated = tasks.map(task => {
+      if (task.id === id) {
+        task.isCompleted = !task.isCompleted;
+      }
+
+      return task;
+    })
+
+    setTasks(tasksUpdated);
+  }
+
   return (
     <>
       <Header/>
@@ -54,7 +66,7 @@ function App() {
             </button>
           </form>
           
-          <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} />
+          <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} />
         </div>
     </> 
   )
