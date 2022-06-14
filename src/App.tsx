@@ -30,6 +30,10 @@ function App() {
       isCompleted: false,
     }
 
+    if (!newTask) {
+      return
+    }
+
     setTasks([...tasks, task])
     setNewTask('');
   }
